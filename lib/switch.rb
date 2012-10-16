@@ -8,9 +8,14 @@ class Switch
   end
 
   def initialize(switcher, &block)
+    @block = block
     @procs = []
     @switcher = switcher
-    instance_eval(&block)
+  end
+
+  def execute
+    instance_eval(&@block)
+    execute_procs(@switcher)
   end
 
   def match(matcher, &block)
@@ -20,7 +25,6 @@ class Switch
 
   def all(&block)
     match(ALWAYS_EXECUTE, &block)
-    execute_procs(@switcher)
   end
 
   def execute_procs(switcher)

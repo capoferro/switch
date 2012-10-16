@@ -70,5 +70,45 @@ describe Switch do
     a.should == 2
   end
 
-    
+  it "allows switches without an all block" do
+    a = 0
+
+    switch(:two) do
+      match(:one) {
+        a += 1
+      }
+      match(:two) {
+        a += 1
+      }
+      match(:three) {
+        a += 1
+      }
+    end
+
+    a.should == 2
+  end
+
+  it "allows all blocks anywhere" do
+    a = 0
+
+    switch(:two) do
+      match(:one) {
+        a += 1
+      }
+      all {
+        a += 1
+      }
+      match(:two) {
+        a += 1
+      }
+      all {
+        a += 1
+      }
+      match(:three) {
+        a += 1
+      }
+    end
+
+    a.should == 4
+  end
 end
