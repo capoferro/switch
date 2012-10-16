@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path('../lib/mb/version', __FILE__)
+require File.expand_path('../lib/switch/version', __FILE__)
 
 Gem::Specification.new do |s|
   s.authors       = ["Josiah Kiehl"]
@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.files         = `git ls-files`.split($\)
   s.executables   = s.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   s.test_files    = s.files.grep(%r{^(spec|features)/})
-  s.name          = "switch"
+  s.name          = "switchrb"
   s.require_paths = ["lib"]
   s.version       = Switch::VERSION
   s.required_ruby_version = ">= 1.9.1"
